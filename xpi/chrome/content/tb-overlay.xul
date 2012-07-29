@@ -111,16 +111,16 @@ MailToolbarPalette
 </window>
 
 <toolbarpalette id="MailToolbarPalette">
-	<toolbarbutton id="rikaichan-toggle-button" class="toolbarbutton-1"
+	<toolbarbutton id="rikaichan-toggle-button" class="toolbarbutton-1 chromeclass-toolbar-additional"
 		label="&rikaichan.toolbar.toggle;" tooltiptext="&rikaichan.toolbar.toggle.tip;"
 		command="rikaichan-toggle-cmd" />
-	<toolbarbutton id="rikaichan-lbar-button" class="toolbarbutton-1"
+	<toolbarbutton id="rikaichan-lbar-button" class="toolbarbutton-1 chromeclass-toolbar-additional"
 		label="&rikaichan.toolbar.lbar;" tooltiptext="&rikaichan.toolbar.lbar.tip;"
 		command="rikaichan-lbar-cmd" />
-	<toolbarbutton id="rikaichan-toggle-button-gs" class="toolbarbutton-1"
+	<toolbarbutton id="rikaichan-toggle-button-gs" class="toolbarbutton-1 chromeclass-toolbar-additional"
 		label="&rikaichan.toolbar.toggle;" tooltiptext="&rikaichan.toolbar.toggle.tip;"
 		command="rikaichan-toggle-cmd" />
-	<toolbarbutton id="rikaichan-lbar-button-gs" class="toolbarbutton-1"
+	<toolbarbutton id="rikaichan-lbar-button-gs" class="toolbarbutton-1 chromeclass-toolbar-additional"
 		label="&rikaichan.toolbar.lbar;" tooltiptext="&rikaichan.toolbar.lbar.tip;"
 		command="rikaichan-lbar-cmd" />
 

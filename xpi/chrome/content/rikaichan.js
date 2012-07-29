@@ -190,7 +190,7 @@ var rcxMain = {
 					this.onTabSelect();
 				}
 			}
-			
+
 			// add icon to the toolbar
 			try {
 				let prefs = new rcxPrefs();
@@ -204,7 +204,7 @@ var rcxMain = {
 					document.persist(nb.id, 'currentset');
 				}
 			}
-			catch (ex) { }			
+			catch (ex) { }
 		}
 
 		this.checkVersion();
@@ -315,14 +315,14 @@ var rcxMain = {
 
 		var en = (bro.rikaichan != null);
 
-		var b = document.getElementById('rikaichan-toggle-button');
-		if (b) b.setAttribute('rc_enabled', en);
-
-		b = document.getElementById('rikaichan-toggle-cmd');
-		if (b) b.setAttribute('checked', en);
+		var b = document.getElementById('rikaichan-toggle-cmd');
+		if (b) {
+			if (en) b.setAttribute('checked', true);
+				else b.removeAttribute('checked');
+		}
 
 		b = document.getElementById('rikaichan-status');
-		if (b) b.setAttribute('rc_enabled', en);
+		if (b) b.setAttribute('rcx_enabled', en);
 	},
 
 	showPopup: function(text, elem, pos, lbPop) {

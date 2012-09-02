@@ -2,7 +2,7 @@
 <!--
 
 	Rikaichan
-	Copyright (C) 2005-2011 Jonathan Zarate
+	Copyright (C) 2005-2012 Jonathan Zarate
 	http://www.polarcloud.com/
 
 
@@ -332,12 +332,19 @@
 							<hbox>
 								<menulist id="rcp-sfcs" flex="0">
 									<menupopup>
-									<menuitem label="UTF-8" value="utf-8"/>
-									<menuitem label="UTF-16" value="utf-16"/>
+									<menuitem label="Unicode (UTF-8)" value="utf-8"/>
+									<menuitem label="Unicode (UTF-16)" value="utf-16"/>
 									<menuitem label="Shift-JIS" value="shift-jis"/>
 									<menuitem label="EUC-JP" value="euc-jp"/>
 									</menupopup>
 								</menulist>
+								<spacer/>
+							</hbox>
+						</row>
+						<row>
+							<label value="Add header to UTF-8" control="rcp-ubom"/>
+							<hbox>
+								<checkbox id="rcp-ubom"/>
 								<spacer/>
 							</hbox>
 						</row>

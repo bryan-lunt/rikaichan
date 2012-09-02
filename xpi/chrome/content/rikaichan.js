@@ -1,7 +1,7 @@
 ﻿/*
 
 	Rikaichan
-	Copyright (C) 2005-2011 Jonathan Zarate
+	Copyright (C) 2005-2012 Jonathan Zarate
 	http://www.polarcloud.com/
 
 	---
@@ -250,8 +250,7 @@ var rcxMain = {
 					.launchExternalURL(url);
 			}
 			else {
-				let tab = gBrowser.addTab(url);
-				if (tab) tab.focus();
+				gBrowser.selectedTab = gBrowser.addTab(url);
 			}
 		}
 		catch (ex) {
@@ -282,7 +281,7 @@ var rcxMain = {
 			setTimeout(function() {
 				if (rcxMain.version) {
 					let prefs = new rcxPrefs();
-					v = 'v' + rcxMain.version;
+					let v = 'v' + rcxMain.version;
 					if (prefs.getString('version') != v) {
 						prefs.setString('version', v);
 						rcxMain.showDownloadPage();
@@ -317,8 +316,18 @@ var rcxMain = {
 
 		var b = document.getElementById('rikaichan-toggle-cmd');
 		if (b) {
-			if (en) b.setAttribute('checked', true);
-				else b.removeAttribute('checked');
+			// FF 14/15/+? weirdness:
+			//	attr false:   toolbar icon remains sunk (bad) / context/tools menu is unchecked (ok)
+			//	attr removed: toolbar icon is normal (ok) / context/tools menu remains checked (bad)
+			
+			b.setAttribute('checked', en);
+			
+			if (!en) {
+				b = document.getElementById('rikaichan-toggle-button');
+				if (b) b.removeAttribute('checked');
+				b = document.getElementById('rikaichan-toggle-button-gs');
+				if (b) b.removeAttribute('checked');
+			}
 		}
 
 		b = document.getElementById('rikaichan-status');
@@ -606,12 +615,19 @@ var rcxMain = {
 
 			lf = Components.classes['@mozilla.org/file/local;1']
 					.createInstance(Components.interfaces.nsILocalFile);
-
 			lf.initWithPath(rcxConfig.sfile);
-
+			let exists = lf.exists();
+			
 			fos = Components.classes['@mozilla.org/network/file-output-stream;1']
 				.createInstance(Components.interfaces.nsIFileOutputStream);
 			fos.init(lf, 0x02 | 0x08 | 0x10, -1, 0);
+			
+			if ((!exists) && (rcxConfig.ubom) && (rcxConfig.sfcs == 'utf-8')) {
+				let bom = '\xEF\xBB\xBF';
+				fos.write(bom, bom.length);
+			}
+
+			// note: nsIConverterOutputStream always adds BOM for UTF-16
 
 			os = Components.classes['@mozilla.org/intl/converter-output-stream;1']
 					.createInstance(Components.interfaces.nsIConverterOutputStream);

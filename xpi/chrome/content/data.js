@@ -1,7 +1,7 @@
 /*
 
 	Rikaichan
-	Copyright (C) 2005-2011 Jonathan Zarate
+	Copyright (C) 2005-2012 Jonathan Zarate
 	http://www.polarcloud.com/
 
 	---
@@ -690,7 +690,9 @@ var rcxData = {
 
 			b.push('<div class="w-title">Names Dictionary</div><table class="w-na-tb"><tr><td>');
 			for (i = 0; i < entry.data.length; ++i) {
-				e = entry.data[i][0].match(/^(.+?)\s+(?:\[(.*?)\])?\s*\/(.+)\//);
+				let data = entry.data[i][0]
+					.replace(/\n/g, '<br/>');
+				e = data.match(/^(.+?)\s+(?:\[(.*?)\])?\s*\/(.+)\//);
 				if (!e) continue;
 
 				if (s != e[3]) {
@@ -738,7 +740,9 @@ var rcxData = {
 			var k;
 
 			for (i = 0; i < entry.data.length; ++i) {
-				e = entry.data[i][0].match(/^(.+?)\s+(?:\[(.*?)\])?\s*\/(.+)\//);
+				let data = entry.data[i][0]
+					.replace(/\n/g, '<br/>');
+				e = data.match(/^(.+?)\s+(?:\[(.*?)\])?\s*\/(.+)\//);
 				if (!e) continue;
 
 				/*
@@ -746,7 +750,6 @@ var rcxData = {
 					e[2] = kana
 					e[3] = definition
 				*/
-
 				if (s != e[3]) {
 					b.push(t);
 					pK = k = '';
@@ -913,25 +916,6 @@ function RcxDb(name)
 				}
 
 				if (!f) throw 'Could not find or open ' + id + '/' + nm;
-
-/*
-				if (!f) {
-					f = Components.classes['@mozilla.org/file/directory_service;1']
-						.getService(Components.interfaces.nsIProperties)
-						.get('ProfD', Components.interfaces.nsIFile);
-					f.append('extensions');
-					f.append(id);
-					f.append(nm);
-					if (!f.exists()) {
-						f = Components.classes['@mozilla.org/file/directory_service;1']
-							.getService(Components.interfaces.nsIProperties)
-							.get('APlugns', Components.interfaces.nsIFile).parent;
-						f.append('extensions');
-						f.append(id);
-						f.append(nm);
-					}
-				}
-*/
 			}
 		}
 		else {
@@ -942,7 +926,7 @@ function RcxDb(name)
 
 		// The files may get installed as read-only, breaking
 		// index creation. Try changing the file permission.
-		if (!f.isWritable()) f.permissions |= 0600;
+		if (!f.isWritable()) f.permissions |= 0x180;	// 0x180=0600 strict mode doesn't like octals
 
 		this.db = Components.classes['@mozilla.org/storage/service;1']
 			.getService(Components.interfaces.mozIStorageService)

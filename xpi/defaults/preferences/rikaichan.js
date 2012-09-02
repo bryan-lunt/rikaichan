@@ -30,6 +30,7 @@ pref('rikaichan.kindex', 'COMP,H,L,E,DK,N,V,Y,P,IN,I,U');
 
 pref('rikaichan.sfile', '');
 pref('rikaichan.sfcs', 'utf-8');
+pref('rikaichan.ubom', true);
 pref('rikaichan.smaxfe', 1);
 pref('rikaichan.smaxfk', 1);
 pref('rikaichan.smaxce', 7);

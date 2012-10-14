@@ -690,9 +690,7 @@ var rcxData = {
 
 			b.push('<div class="w-title">Names Dictionary</div><table class="w-na-tb"><tr><td>');
 			for (i = 0; i < entry.data.length; ++i) {
-				let data = entry.data[i][0]
-					.replace(/\n/g, '<br/>');
-				e = data.match(/^(.+?)\s+(?:\[(.*?)\])?\s*\/(.+)\//);
+				e = entry.data[i][0].match(/^(.+?)\s+(?:\[(.*?)\])?\s*\/([\S\s]+)\//);
 				if (!e) continue;
 
 				if (s != e[3]) {
@@ -705,7 +703,7 @@ var rcxData = {
 
 				s = e[3];
 				if (rcxConfig.hidedef) t = '';
-					else t = '<span class="w-def">' + s.replace(/\//g, '; ') + '</span><br/>';
+					else t = '<span class="w-def">' + s.replace(/\//g, '; ').replace(/\n/g, '<br/>') + '</span><br/>';
 			}
 			c.push(t);
 			if (c.length > 4) {
@@ -740,9 +738,7 @@ var rcxData = {
 			var k;
 
 			for (i = 0; i < entry.data.length; ++i) {
-				let data = entry.data[i][0]
-					.replace(/\n/g, '<br/>');
-				e = data.match(/^(.+?)\s+(?:\[(.*?)\])?\s*\/(.+)\//);
+				e = entry.data[i][0].match(/^(.+?)\s+(?:\[(.*?)\])?\s*\/([\S\s]+)\//);
 				if (!e) continue;
 
 				/*
@@ -779,6 +775,7 @@ var rcxData = {
 					t = s.replace(/\//g, '; ');
 					if (!rcxConfig.wpos) t = t.replace(/^\([^)]+\)\s*/, '');
 					if (!rcxConfig.wpop) t = t.replace('; (P)', '');
+					t = t.replace(/\n/g, '<br/>');
 					t = '<br/><span class="w-def">' + t + '</span><br/>';
 				}
 			}

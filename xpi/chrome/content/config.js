@@ -1,7 +1,7 @@
 /*
 
 	Rikaichan
-	Copyright (C) 2005-2012 Jonathan Zarate
+	Copyright (C) 2005-2013 Jonathan Zarate
 	http://www.polarcloud.com/
 
 	---
@@ -82,7 +82,7 @@ var rcxConfigList = [
 function rcxPrefs() {
 	this.branch = Components.classes['@mozilla.org/preferences-service;1']
 		.getService(Components.interfaces.nsIPrefService)
-		.getBranch('rikaichan.');
+		.getBranch('extensions.rikaichan.');
 }
 
 rcxPrefs.prototype = {

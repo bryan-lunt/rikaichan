@@ -4,7 +4,7 @@
 	<Description about="urn:mozilla:install-manifest">
 		<em:id>{0AA9101C-D3C1-4129-A9B7-D778C6A17F82}</em:id>
 		<em:name>Rikaichan</em:name>
-		<em:version>2.08b2</em:version>
+		<em:version>2.08b3</em:version>
 		<em:description>Japanese dictionary extension</em:description>
 		<em:optionsURL>chrome://rikaichan/content/options.xul</em:optionsURL>
 		<em:iconURL>chrome://rikaichan/skin/smile.png</em:iconURL>
@@ -16,7 +16,8 @@
 		<em:contributor>Michael Raine</em:contributor>
 		<em:contributor>Josh Glover</em:contributor>
 		<em:contributor>Zork Zero</em:contributor>
-		
+		<em:type>2</em:type>
+
 		<!-- for now... -->
 		<em:unpack>true</em:unpack>
 

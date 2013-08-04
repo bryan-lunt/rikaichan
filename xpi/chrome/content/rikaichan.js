@@ -1,7 +1,7 @@
 ﻿/*
 
 	Rikaichan
-	Copyright (C) 2005-2012 Jonathan Zarate
+	Copyright (C) 2005-2013 Jonathan Zarate
 	http://www.polarcloud.com/
 
 	---
@@ -1364,13 +1364,13 @@ var rcxConfig = {
 			Components.classes['@mozilla.org/preferences-service;1']
 				.getService(Components.interfaces.nsIPrefBranch)
 				.QueryInterface(Components.interfaces.nsIPrefBranch2)
-				.addObserver('rikaichan.', this, false);
+				.addObserver('extensions.rikaichan.', this, false);
 		},
 		stop: function() {
 			Components.classes['@mozilla.org/preferences-service;1']
 					.getService(Components.interfaces.nsIPrefBranch)
 					.QueryInterface(Components.interfaces.nsIPrefBranch2)
-					.removeObserver('rikaichan.', this);
+					.removeObserver('extensions.rikaichan.', this);
 		}
 	},
 

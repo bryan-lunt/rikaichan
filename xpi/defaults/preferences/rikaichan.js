@@ -1,51 +1,51 @@
-pref('rikaichan.css', 'blue');
-pref('rikaichan.enmode', 1);
-pref('rikaichan.highlight', true);
-pref('rikaichan.selinlb', true);
-pref('rikaichan.bottomlb', false);
-pref('rikaichan.resizedoc', false);
-pref('rikaichan.sticon', true);
-pref('rikaichan.minihelp', true);
+pref('extensions.rikaichan.css', 'blue');
+pref('extensions.rikaichan.enmode', 1);
+pref('extensions.rikaichan.highlight', true);
+pref('extensions.rikaichan.selinlb', true);
+pref('extensions.rikaichan.bottomlb', false);
+pref('extensions.rikaichan.resizedoc', false);
+pref('extensions.rikaichan.sticon', true);
+pref('extensions.rikaichan.minihelp', true);
 
-pref('rikaichan.cmtoggle', true);
-pref('rikaichan.cmlbar', false);
-pref('rikaichan.tmtoggle', true);
-pref('rikaichan.tmlbar', true);
+pref('extensions.rikaichan.cmtoggle', true);
+pref('extensions.rikaichan.cmlbar', false);
+pref('extensions.rikaichan.tmtoggle', true);
+pref('extensions.rikaichan.tmlbar', true);
 
-pref('rikaichan.nopopkeys', false);
+pref('extensions.rikaichan.nopopkeys', false);
 
-pref('rikaichan.toggle.key', 'INSERT');
-pref('rikaichan.toggle.mod', 'alt');
+pref('extensions.rikaichan.toggle.key', 'INSERT');
+pref('extensions.rikaichan.toggle.mod', 'alt');
 
-pref('rikaichan.lbar.key', 'DELETE');
-pref('rikaichan.lbar.mod', 'alt');
+pref('extensions.rikaichan.lbar.key', 'DELETE');
+pref('extensions.rikaichan.lbar.mod', 'alt');
 
-pref('rikaichan.dpriority', '');
-pref('rikaichan.wpos', true);
-pref('rikaichan.wpop', true);
-pref('rikaichan.wmax', 10);
-pref('rikaichan.namax', 20);
+pref('extensions.rikaichan.dpriority', '');
+pref('extensions.rikaichan.wpos', true);
+pref('extensions.rikaichan.wpop', true);
+pref('extensions.rikaichan.wmax', 10);
+pref('extensions.rikaichan.namax', 20);
 
-pref('rikaichan.kindex', 'COMP,H,L,E,DK,N,V,Y,P,IN,I,U');
+pref('extensions.rikaichan.kindex', 'COMP,H,L,E,DK,N,V,Y,P,IN,I,U');
 
-pref('rikaichan.sfile', '');
-pref('rikaichan.sfcs', 'utf-8');
-pref('rikaichan.ubom', true);
-pref('rikaichan.smaxfe', 1);
-pref('rikaichan.smaxfk', 1);
-pref('rikaichan.smaxce', 7);
-pref('rikaichan.smaxck', 1);
-pref('rikaichan.snlf', 0);
-pref('rikaichan.ssep', 'Tab');
+pref('extensions.rikaichan.sfile', '');
+pref('extensions.rikaichan.sfcs', 'utf-8');
+pref('extensions.rikaichan.ubom', true);
+pref('extensions.rikaichan.smaxfe', 1);
+pref('extensions.rikaichan.smaxfk', 1);
+pref('extensions.rikaichan.smaxce', 7);
+pref('extensions.rikaichan.smaxck', 1);
+pref('extensions.rikaichan.snlf', 0);
+pref('extensions.rikaichan.ssep', 'Tab');
 
-pref('rikaichan.version', '');
-pref('rikaichan.checkversion', true);
+pref('extensions.rikaichan.version', '');
+pref('extensions.rikaichan.checkversion', true);
 
-pref('rikaichan.popdelay', 50);
-pref('rikaichan.title', true);
-pref('rikaichan.dpriority', '');
-pref('rikaichan.hidedef', false);
-pref('rikaichan.hidex', false);
-//	pref('rikaichan.sticky', false);
+pref('extensions.rikaichan.popdelay', 50);
+pref('extensions.rikaichan.title', true);
+pref('extensions.rikaichan.dpriority', '');
+pref('extensions.rikaichan.hidedef', false);
+pref('extensions.rikaichan.hidex', false);
+//	pref('extensions.rikaichan.sticky', false);
 
-pref('rikaichan.firsticon', true);
+pref('extensions.rikaichan.firsticon', true);

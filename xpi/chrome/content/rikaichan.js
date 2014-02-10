@@ -1,7 +1,7 @@
 ﻿/*
 
 	Rikaichan
-	Copyright (C) 2005-2013 Jonathan Zarate
+	Copyright (C) 2005-2014 Jonathan Zarate
 	http://www.polarcloud.com/
 
 	---
@@ -242,7 +242,7 @@ var rcxMain = {
 	},
 
 	showDownloadPage: function() {
-		const url = 'http://rikaichan.mozdev.org/getdic2.html?version=' + (this.version || '');
+		const url = 'http://www.polarcloud.com/getrcx/?version=' + (this.version || '');
 		try {
 			if (this.isTB) {
 				Components.classes['@mozilla.org/messenger;1'].createInstance()

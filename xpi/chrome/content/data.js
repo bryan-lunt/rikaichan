@@ -1,7 +1,7 @@
 /*
 
 	Rikaichan
-	Copyright (C) 2005-2013 Jonathan Zarate
+	Copyright (C) 2005-2014 Jonathan Zarate
 	http://www.polarcloud.com/
 
 	---
@@ -110,11 +110,10 @@ var rcxData = {
 			rcxData.dicPath = { ready: false };
 			try {
 				Components.utils.import('resource://gre/modules/AddonManager.jsm');
-				// ! asynchronous
+				// asynchronous
 				AddonManager.getAddonsByIDs(ids, function(addons) {
 					for (let i = 0; i < addons.length; ++i) {
 						let a = addons[i];
-						// URL->URI changed in 3.7a6?
 						rcxData.dicPath[a.id] = a.getResourceURI('install.rdf')
 								.QueryInterface(Components.interfaces.nsIFileURL)
 								.file.parent.path;
@@ -906,27 +905,22 @@ function RcxDb(name)
 		if (name.match(/(.+)\|(.+)/)) {
 			let id = RegExp.$1;
 			let nm = RegExp.$2;
-			try {
-				f = Components.classes['@mozilla.org/extensions/manager;1']
-					.getService(Components.interfaces.nsIExtensionManager)
-					.getInstallLocation(id).getItemFile(id, nm);
-			}
-			catch (ex) {
-				if ((rcxData.dicPath) && (rcxData.dicPath[id])) {
-					f = Components.classes['@mozilla.org/file/local;1']
-						.createInstance(Components.interfaces.nsILocalFile);
-					f.initWithPath(rcxData.dicPath[id]);
-					f.append(nm);
-				}
+				
+			if (typeof(rcxData.dicPath) == 'undefined') throw 'dicPath does not exist';
+			if (typeof(rcxData.dicPath[id]) == 'undefined') throw 'dicPath.' + id + ' does not exist';
 
-				if (!f) throw 'Could not find or open ' + id + '/' + nm;
-			}
+			f = Components.classes['@mozilla.org/file/local;1']
+				.createInstance(Components.interfaces.nsILocalFile);
+			f.initWithPath(rcxData.dicPath[id]);
+			f.append(nm);
 		}
 		else {
 			f = Components.classes['@mozilla.org/file/local;1']
 				.createInstance(Components.interfaces.nsILocalFile);
 			f.initWithPath(name);
 		}
+
+		if (!f.exists()) throw 'Could not find ' + id + '/' + nm;
 
 		// The files may get installed as read-only, breaking
 		// index creation. Try changing the file permission.
